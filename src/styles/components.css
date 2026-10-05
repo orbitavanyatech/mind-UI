@@ -1,0 +1,61 @@
+/* Shared component styles. Loaded after base.css and before utilities.css so a
+   utility class on the same element (e.g. `form-input bg-white`) still wins. */
+
+.form-input {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  border-width: 1px;
+  border-color: var(--slate-300);
+  padding: var(--space-2_5) var(--space-3);
+  font-size: var(--text-sm);
+  line-height: var(--leading-sm);
+  color: var(--slate-900);
+  --u-shadow: var(--shadow-sm);
+  --u-shadow-colored: 0 1px 2px 0 var(--u-shadow-color);
+  box-shadow: var(--u-ring-offset-shadow, 0 0 #0000), var(--u-ring-shadow, 0 0 #0000), var(--u-shadow);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.form-input::-moz-placeholder {
+  color: var(--slate-400);
+}
+
+.form-input::placeholder {
+  color: var(--slate-400);
+}
+
+.form-input:focus {
+  border-color: var(--teal-500);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --u-ring-offset-shadow: var(--u-ring-inset) 0 0 0 var(--u-ring-offset-width) var(--u-ring-offset-color);
+  --u-ring-shadow: var(--u-ring-inset) 0 0 0 calc(2px + var(--u-ring-offset-width)) var(--u-ring-color);
+  box-shadow: var(--u-ring-offset-shadow), var(--u-ring-shadow), var(--u-shadow, 0 0 #0000);
+  --u-ring-color: color-mix(in srgb, var(--teal-500) 20%, transparent);
+}
+
+/* Compact select used for inline editing inside tables and cards (e.g. placing a person
+   in a department / team). Pairs with `.form-input` for full-size fields. */
+.form-select-sm {
+  max-width: 11rem;
+  border-radius: var(--radius-lg);
+  border-width: 1px;
+  border-color: var(--slate-200);
+  background-color: #fff;
+  padding: var(--space-1_5, 0.375rem) var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--slate-700);
+}
+
+.form-select-sm:focus {
+  border-color: var(--indigo-400, var(--indigo-300));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.form-select-sm:disabled {
+  background-color: var(--slate-50);
+  color: var(--slate-400);
+}
